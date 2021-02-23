@@ -77,3 +77,7 @@ C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\obj\Debug\CmsPhotoBlog.csp
 C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\obj\Debug\CmsPhotoBlog.csproj.CopyComplete
 C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\obj\Debug\CmsPhotoBlog.dll
 C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\obj\Debug\CmsPhotoBlog.pdb
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\CmsPhotoBlog.Application.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\CmsPhotoBlog.Infrastructure.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\CmsPhotoBlog.Application.pdb
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\CmsPhotoBlog.Infrastructure.pdb
