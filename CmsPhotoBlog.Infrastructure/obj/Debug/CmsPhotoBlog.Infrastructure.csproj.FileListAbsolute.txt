@@ -1,0 +1,9 @@
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\bin\Debug\CmsPhotoBlog.Infrastructure.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\bin\Debug\CmsPhotoBlog.Infrastructure.pdb
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\bin\Debug\CmsPhotoBlog.Domain.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\bin\Debug\CmsPhotoBlog.Domain.pdb
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\obj\Debug\CmsPhotoBlog.Infrastructure.csprojAssemblyReference.cache
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\obj\Debug\CmsPhotoBlog.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\obj\Debug\CmsPhotoBlog.Infrastructure.csproj.CopyComplete
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\obj\Debug\CmsPhotoBlog.Infrastructure.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Infrastructure\obj\Debug\CmsPhotoBlog.Infrastructure.pdb

@@ -1,0 +1,6 @@
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Domain\bin\Debug\CmsPhotoBlog.Domain.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Domain\bin\Debug\CmsPhotoBlog.Domain.pdb
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Domain\obj\Debug\CmsPhotoBlog.Domain.csprojAssemblyReference.cache
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Domain\obj\Debug\CmsPhotoBlog.Domain.csproj.CoreCompileInputs.cache
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Domain\obj\Debug\CmsPhotoBlog.Domain.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Domain\obj\Debug\CmsPhotoBlog.Domain.pdb
