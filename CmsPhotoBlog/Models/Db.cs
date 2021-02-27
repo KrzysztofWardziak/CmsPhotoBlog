@@ -12,6 +12,8 @@ namespace CmsPhotoBlog.Models
     public class Db : DbContext
     {
         public DbSet<Page> Pages { get; set; }
+        public DbSet<Sidebar> Sidebars { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

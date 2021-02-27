@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using CmsPhotoBlog.Models;
 
 namespace CmsPhotoBlog.ViewModels.Pages
@@ -32,6 +33,7 @@ namespace CmsPhotoBlog.ViewModels.Pages
         public string Slug { get; set; }
         [Required]
         [Display(Name = "Zawartość strony")]
+        [AllowHtml]
         public string Body { get; set; }
         public int Sorting { get; set; }
         [Display(Name = "Pasek boczny")]
