@@ -263,6 +263,7 @@ namespace CmsPhotoBlog.Areas.Admin.Controllers
         }
 
         // GET: Admin/Blog/AllBlogs
+        [Route("wpisy")]
         public ActionResult AllBlogs(int? page, int? catId)
         {
             // deklaracja listy blogow 
@@ -287,8 +288,8 @@ namespace CmsPhotoBlog.Areas.Admin.Controllers
             }
 
             // ustawienie stronnicowania
-            var onePageOfProducts = listOfBlogVm.ToPagedList(pageNumber, 3);
-            ViewBag.OnePageOfProducts = onePageOfProducts;
+            var onePageOfBlogs = listOfBlogVm.ToPagedList(pageNumber, 3);
+            ViewBag.OnePageOfBlogs = onePageOfBlogs;
 
             // zwracamy widok z lista blogow
 
@@ -378,7 +379,139 @@ namespace CmsPhotoBlog.Areas.Admin.Controllers
             // ustawiamy zmienna TempData
             TempData["SM"] = "Edytowano blog";
 
+            #region Image Upload
+
+            // sprawdzamy czy jest plik do zaladowania
+            if (file != null && file.ContentLength > 0)
+            {
+                // sprawdzamy rozszerzenie pliku czy to jest obrazek
+                string ext = file.ContentType.ToLower();
+                if (ext != "image/jpg" &&
+                    ext != "image/jpeg" &&
+                    ext != "image/pjpeg" &&
+                    ext != "image/gif" &&
+                    ext != "image/xpng" &&
+                    ext != "image/png")
+                {
+                    using (Db db = new Db())
+                    {
+                        model.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+                        ModelState.AddModelError("", "Obraz nie został przesłany - nieprawidłowe rozszerzenie obrazu.");
+                        return View(model);
+                    }
+                }
+
+                // Utworzenie potrzebnej struktury katalogow 
+                var originalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
+
+                var pathString1 = Path.Combine(originalDirectory.ToString(), "Blogs\\" + id.ToString());
+                var pathString2 = Path.Combine(originalDirectory.ToString(), "Blogs\\" + id.ToString() + "\\Thumbs");
+
+                // usuwamy stare pliki z katalogow
+                DirectoryInfo di1 = new DirectoryInfo(pathString1);
+                DirectoryInfo di2 = new DirectoryInfo(pathString2);
+
+                foreach (var file2 in di1.GetFiles())
+                    file2.Delete();
+
+                foreach(var file3 in di2.GetFiles())
+                    file3.Delete();
+                
+                // zapisujemy nazwe obrazka na bazie
+                string imageName = file.FileName;
+
+                using (Db db = new Db())
+                {
+                    BlogDetails dto = db.BlogDetailses.Find(id);
+                    dto.ImageName = imageName;
+                    db.SaveChanges();
+                }
+
+                // zapis nowych plikow
+                var path = string.Format("{0}\\{1}", pathString1, imageName);
+                var path2 = string.Format("{0}\\{1}", pathString2, imageName);
+
+                file.SaveAs(path);
+
+                WebImage img = new WebImage(file.InputStream);
+                img.Resize(200, 200);
+                img.Save(path2);
+
+            }
+
+            #endregion
+
+
             return RedirectToAction("EditBlog");
+        }
+
+        // GET: Admin/Blog/DeleteBlog
+        public ActionResult DeleteBlog(int id)
+        {
+            // usuniecie bloga z bazy
+            using (Db db = new Db())
+            {
+                BlogDetails dto = db.BlogDetailses.Find(id);
+                db.BlogDetailses.Remove(dto);
+                db.SaveChanges();
+            }
+            // usuniecie folderu blogu z plikami
+            var orginalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
+            var pathString = Path.Combine(orginalDirectory.ToString(), "Blogs\\" + id.ToString());
+
+            if (Directory.Exists(pathString))
+                    Directory.Delete(pathString, true);
+
+            return RedirectToAction("AllBlogs");
+        }
+
+        // POST: Admin/Blog/SaveGalleryImages
+        [HttpPost]
+        public ActionResult SaveGalleryImages(int id)
+        {
+            // petla po obrazkach
+            foreach (string fileName in Request.Files)
+            {
+                // inicjalizacja 
+                HttpPostedFileBase file = Request.Files[fileName];
+
+                // sprawdzamy czy mam plik i czy nie jest pusty
+                if (file != null && file.ContentLength > 0)
+                {
+                    // Utworzenie potrzebnej struktury katalogów
+                    var originalDirectory =
+                        new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
+
+                    string pathString1 = Path.Combine(originalDirectory.ToString(),
+                        "Blogs\\" + id.ToString() + "\\Gallery");
+                    string pathString2 = Path.Combine(originalDirectory.ToString(),
+                        "Blogs\\" + id.ToString() + "\\Gallery\\Thumbs");
+
+                    var path = string.Format("{0}\\{1}", pathString1, file.FileName);
+                    var path2 = string.Format("{0}\\{1}", pathString2, file.FileName);
+
+                    file.SaveAs(path);
+                    WebImage img = new WebImage(file.InputStream);
+                    img.Resize(200, 200);
+                    img.Save(path2);
+                }
+            }
+
+            return View();
+        }
+
+        // POST: Admin/Blog/DeleteImage
+        [HttpPost]
+        public void DeleteImage(int id, string imageName)
+        {
+            string fullPath1 = Request.MapPath("~/Images/Uploads/Blogs/" + id.ToString() + "/Gallery/" + imageName);
+            string fullPath2 = Request.MapPath("~/Images/Uploads/Blogs/" + id.ToString() + "/Gallery/Thumbs/" + imageName);
+
+            if (System.IO.File.Exists(fullPath1))
+                System.IO.File.Delete(fullPath1);
+
+            if (System.IO.File.Exists(fullPath2))
+                System.IO.File.Delete(fullPath2);
         }
     }
 }

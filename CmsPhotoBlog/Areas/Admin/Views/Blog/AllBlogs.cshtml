@@ -50,35 +50,35 @@
         <th></th>
     </tr>
 
-    @foreach (var product in ViewBag.OnePageOfProducts)
+    @foreach (var blog in ViewBag.OnePageOfBlogs)
     {
         <tr>
             <td>
-                @product.Name
+                @blog.Name
             </td>
             <td>
-                @product.Title
+                @blog.Title
             </td>
             <td>
-                @product.Description
+                @blog.Description
             </td>
             <td>
-                <a href="/admin/blog/EditBlog/@product.Id">
-                    <img src="/Images/Uploads/Blogs/@product.Id/Thumbs/@product.ImageName" />
+                <a href="/admin/blog/EditBlog/@blog.Id">
+                    <img src="/Images/Uploads/Blogs/@blog.Id/Thumbs/@blog.ImageName" />
                 </a>
             </td>
             <td>
-                @product.Date
+                @blog.Date
             </td>
             <td>
-                @Html.ActionLink("Edycja", "EditBlog", new { id = product.Id }) |
-                @Html.ActionLink("Usuń", "DeleteBlog", new { id = product.Id })
+                @Html.ActionLink("Edycja", "EditBlog", new { id = blog.Id }) |
+                @Html.ActionLink("Usuń", "DeleteBlog", new { id = blog.Id }, new {@class = "delete"})
             </td>
         </tr>
     }
 </table>
 
-@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("AllBlogs", new { page, catId = ViewBag.SelectedCat }))
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfBlogs, page => Url.Action("AllBlogs", new { page, catId = ViewBag.SelectedCat }))
 
 
 @section scripts
@@ -101,9 +101,13 @@
 
         /////////////////////////////////////////
 
-        // sortowanie strony
+        // usuniecie bloga
+            $(function() {
 
-
+                $("a.delete").click(function() {
+                    if (!confirm("Potwierdzasz usunięcie wpisu")) return false;
+                });
+            });
     </script>
 
 }
