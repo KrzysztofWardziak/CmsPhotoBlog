@@ -1,0 +1,109 @@
+﻿@model IEnumerable<CmsPhotoBlog.ViewModels.Blog.BlogDetailsVm>
+
+@{
+    ViewBag.Title = "Blog";
+}
+
+@using PagedList.Mvc;
+@using PagedList;
+
+<h2>Wpisy</h2>
+
+<select id="SelectCategory" name="SelectCategory">
+    <option value="0">Wszystkie </option>
+    @foreach (var item in ViewBag.Categories)
+    {
+        if (ViewBag.SelectedCat == item.Value)
+        {
+            <option selected="selected" value="@item.Value">@item.Text</option>
+        }
+        else
+        {
+            <option value="@item.Value">@item.Text</option>
+        }
+    }
+</select>
+<br />
+<br />
+
+<p>
+    @Html.ActionLink("Dodaj nowy wpis", "AddBlog")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nazwa
+        </th>
+        <th>
+            Tytuł
+        </th>
+        <th>
+            Opis
+        </th>
+        <th>
+            Zdjęcia
+        </th>
+        <th>
+            Data utworzenia
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var product in ViewBag.OnePageOfProducts)
+    {
+        <tr>
+            <td>
+                @product.Name
+            </td>
+            <td>
+                @product.Title
+            </td>
+            <td>
+                @product.Description
+            </td>
+            <td>
+                <a href="/admin/blog/EditBlog/@product.Id">
+                    <img src="/Images/Uploads/Blogs/@product.Id/Thumbs/@product.ImageName" />
+                </a>
+            </td>
+            <td>
+                @product.Date
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "EditBlog", new { id = product.Id }) |
+                @Html.ActionLink("Usuń", "DeleteBlog", new { id = product.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("AllBlogs", new { page, catId = ViewBag.SelectedCat }))
+
+
+@section scripts
+{
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+
+    <script>
+        // filtrowanie do wybranej kategorii 
+
+        $("#SelectCategory").on("change",
+            function() {
+                var url = $(this).val();
+
+                if (url) {
+                    window.location = "/admin/blog/AllBlogs?catId=" + url;
+                }
+                return false;
+            });
+
+        /////////////////////////////////////////
+
+        // sortowanie strony
+
+
+    </script>
+
+}
