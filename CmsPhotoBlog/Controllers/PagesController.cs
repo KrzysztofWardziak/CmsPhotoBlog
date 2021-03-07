@@ -51,5 +51,24 @@ namespace CmsPhotoBlog.Controllers
             //zwracamy widok z modelem
             return View(model);
         }
+
+        public ActionResult PagesMenuPartial()
+        {
+            // deklaracja pageVm
+            List<PageVm> pageVmList;
+
+            // pobieramy strony
+            using (Db db = new Db())
+            {
+                pageVmList = db.Pages.ToArray().
+                    OrderBy(x => x.Sorting).
+                    Where(x => x.Slug != "home").
+                    Select(x => new PageVm(x)).
+                    ToList();
+            }
+            // zwracamy pageVm w partial view
+            return PartialView(pageVmList);
+        }
     }
+
 }
