@@ -69,6 +69,22 @@ namespace CmsPhotoBlog.Controllers
             // zwracamy pageVm w partial view
             return PartialView(pageVmList);
         }
+
+        public ActionResult SideBarPartial()
+        {
+            // deklarujemy model
+            SidebarVm model;
+
+            // inicjalizujemy model
+            using (Db db = new Db())
+            {
+                Sidebar dto = db.Sidebars.Find(1);
+                model = new SidebarVm(dto);
+            }
+
+            // zwracamy partial z modelem
+            return PartialView(model);
+        }
     }
 
 }
