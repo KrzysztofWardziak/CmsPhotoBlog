@@ -33,6 +33,11 @@ namespace CmsPhotoBlog
                 "Pages/SideBarPartial",
                 new { controller = "Pages", action = "SideBarPartial" }, new[] { "CmsPhotoBlog.Controllers" });
 
+            routes.MapRoute(
+                "Blog",
+                "Blog/{action}/{name}",
+                new { controller = "Blog", action = "Index", name = UrlParameter.Optional }, new[] { "CmsPhotoBlog.Controllers" });
+
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",
