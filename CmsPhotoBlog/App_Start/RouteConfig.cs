@@ -38,6 +38,12 @@ namespace CmsPhotoBlog
                 "Blog/{action}/{name}",
                 new { controller = "Blog", action = "Index", name = UrlParameter.Optional }, new[] { "CmsPhotoBlog.Controllers" });
 
+            routes.MapRoute(
+                "Account",
+                "Account/{action}/{id}",
+                new { controller = "Account", action = "Index", id = UrlParameter.Optional }, new[] { "CmsPhotoBlog.Controllers" });
+
+
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",
