@@ -7,7 +7,7 @@ using System.Web;
 
 namespace CmsPhotoBlog.Models
 {
-    [Table("tblUserRole")]
+    [Table("tblUserRoles")]
     public class UserRole
     {
         [Key, Column(Order = 0)]

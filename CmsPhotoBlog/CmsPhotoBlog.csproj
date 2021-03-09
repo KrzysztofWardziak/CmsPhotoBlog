@@ -229,11 +229,14 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Account\LoginUserVm.cs" />
+    <Compile Include="ViewModels\Account\UserProfileVm.cs" />
     <Compile Include="ViewModels\Account\UserVm.cs" />
     <Compile Include="ViewModels\Blog\BlogDetailsVm.cs" />
     <Compile Include="ViewModels\Blog\CategoryVm.cs" />
     <Compile Include="ViewModels\Pages\PageVm.cs" />
     <Compile Include="ViewModels\Pages\SidebarVm.cs" />
+    <Compile Include="ViewModels\Account\UserNavPartialVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\PhotoBlog.mdf" />
@@ -962,6 +965,9 @@
     <Content Include="Views\Blog\Category.cshtml" />
     <Content Include="Views\Blog\BlogDetails.cshtml" />
     <Content Include="Views\Account\CreateAccount.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\UserNavPartial.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
