@@ -1,0 +1,14 @@
+﻿@model IEnumerable<CmsPhotoBlog.ViewModels.Blog.CategoryVm>
+
+<h3>Kategorie</h3>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="/blog/category/@item.Slug.ToLower()">@item.Name</a>
+        </li>
+    }
+</ul>
+
+

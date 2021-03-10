@@ -1,0 +1,8 @@
+﻿@model CmsPhotoBlog.ViewModels.Pages.PageVm
+
+@{
+    ViewBag.Title = ViewBag.PageTitle;
+    TempData["PageTitle"] = ViewBag.PageTitle;
+}
+
+@Html.Raw(Model.Body)

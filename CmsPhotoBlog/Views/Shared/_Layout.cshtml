@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - CmsBlog</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,27 +16,83 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="/" class="navbar-brand">CmsBlog</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @Html.Action("PagesMenuPartial", "Pages")
+                    @*@if (Request.IsAuthenticated)
+                    {
+                        <li><a href="/account/Logout">Wylogowanie</a></li>
+                    }
+                    else
+                    {
+                        if (ViewBag.Title == "Logowanie")
+                        {
+                            <li class="active"><a href="/account/Login">Logowanie</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/account/Login">Logowanie</a></li>
+
+                        }
+                    }*@
+                    @*@if (Request.IsAuthenticated && User.IsInRole("User"))
+                    {
+                        if (ViewBag.Title == "Profil użytkownika")
+                        {
+                            <li class="active">@Html.Action("UserNavPartial", "Account", new { area = "" })</li>
+                        }
+                        else
+                        {
+                            <li>@Html.Action("UserNavPartial", "Account", new { area = "" })</li>
+                        }
+                    }*@
                 </ul>
+
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <ul class="navbar-collapse collapse navbar-right adminarea">
+                        <li>
+                            @Html.ActionLink("Dashboard", "Index", "Dashboard", new {area = "Admin"}, null)
+                        </li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-2">
+                @Html.Action("CategoryMenuPartial", "Blog")
+            </div>
+            <div class="col-xs-12 col-md-2">
+                @Html.Action("AddMessage", "Blog")
+            </div>
+            @if (ViewBag.Sidebar == "Tak")
+            {
+                <div class="col-xs-12 col-md-7">
+                    @RenderBody()
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    @Html.Action("SideBarPartial", "Pages")
+                </div>
+            }
+            else
+            {
+                <div class="col-xs-12 col-md-10">
+                    @RenderBody()
+                </div>
+            }
+        </div>
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - CmsBlog</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>

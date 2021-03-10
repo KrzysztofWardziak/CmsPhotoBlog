@@ -1,9 +1,0 @@
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\bin\Debug\CmsPhotoBlog.Application.dll
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\bin\Debug\CmsPhotoBlog.Application.pdb
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\bin\Debug\CmsPhotoBlog.Domain.dll
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\bin\Debug\CmsPhotoBlog.Domain.pdb
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\obj\Debug\CmsPhotoBlog.Application.csprojAssemblyReference.cache
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\obj\Debug\CmsPhotoBlog.Application.csproj.CoreCompileInputs.cache
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\obj\Debug\CmsPhotoBlog.Application.csproj.CopyComplete
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\obj\Debug\CmsPhotoBlog.Application.dll
-C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog.Application\obj\Debug\CmsPhotoBlog.Application.pdb

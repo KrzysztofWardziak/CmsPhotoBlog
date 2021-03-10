@@ -130,3 +130,7 @@ C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\System.Numerics.Vector
 C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\obj\Debug\CmsPhotoBlog.csprojAssemblyReference.cache
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\PagedList.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\PagedList.Mvc.dll
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\PagedList.xml
+C:\Users\krisw\source\repos\CmsPhotoBlog\CmsPhotoBlog\bin\PagedList.Mvc.xml
