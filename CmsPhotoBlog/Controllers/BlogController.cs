@@ -99,5 +99,18 @@ namespace CmsPhotoBlog.Controllers
             // zwracamy widok z modelem
             return View("BlogDetails", model);
         }
+
+        [HttpGet]
+        public ActionResult AddMessage()
+        {
+            return View(new MessageInfoVm());
+        }
+
+        [HttpPost]
+        public ActionResult AddMessage(MessageInfoVm model)
+        {
+            return View(new MessageInfoVm());
+        }
+
     }
 }

@@ -223,6 +223,7 @@
     <Compile Include="Models\BlogDetails.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Db.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Sidebar.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="ViewModels\Account\UserVm.cs" />
     <Compile Include="ViewModels\Blog\BlogDetailsVm.cs" />
     <Compile Include="ViewModels\Blog\CategoryVm.cs" />
+    <Compile Include="ViewModels\Blog\MessageInfoVm.cs" />
     <Compile Include="ViewModels\Pages\PageVm.cs" />
     <Compile Include="ViewModels\Pages\SidebarVm.cs" />
     <Compile Include="ViewModels\Account\UserNavPartialVm.cs" />
